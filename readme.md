@@ -14,24 +14,23 @@ It’s designed as both a personal learning archive and a resource for anyone re
   - Forward & backward display
 - **Arrays**
   - Basic operations
-  - Searching & sorting
+  - Sparse matrix
 - **Recursion**
-  - Classic problems (factorial, Fibonacci, etc.)
-  - Recursive traversal
+  - Tower of hanoi
 - **Stack**
-  - Array-based stack
+  - Array-based stack(isFull, isEmpty, push, peek, pop etc.)
   - Linked list-based stack
-  - Applications (expression evaluation, parentheses matching)
+  - Applications (expression conversions & evaluation for both postfix & prefix)
 - **Queue**
-  - Linear queue
-  - Circular queue
-  - Linked list-based queue
+  - Linear queue(isFull, isEmpty, enqueue, peek, dequeue etc.)
+  - Circular queue(same as above)
 
+- **More coming soon....**
 ---
 
 ## 🚀 Getting Started
 
 Clone the repository:
 ```bash
-git clone https://github.com/<your-username>/dsa.git
-cd dsa
+git clone https://github.com/iamsoumaditya/DSA.git
+cd DSA
