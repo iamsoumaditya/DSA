@@ -9,9 +9,7 @@ It’s designed as both a personal learning archive and a resource for anyone re
 ## 📂 Contents
 
 - **Linked List**
-  - Singly Linked List (insertion, deletion, traversal, reverse, search, min/max, middle element)
-  - Sorted insertion
-  - Forward & backward display
+  - Singly Linked List (insertion, deletion, traversal, reverse, search, min/max, middle element, Sorted insertion, Forward & backward display)
 - **Arrays**
   - Basic operations
   - Sparse matrix
@@ -19,7 +17,6 @@ It’s designed as both a personal learning archive and a resource for anyone re
   - Tower of hanoi
 - **Stack**
   - Array-based stack(isFull, isEmpty, push, peek, pop etc.)
-  - Linked list-based stack
   - Applications (expression conversions & evaluation for both postfix & prefix)
 - **Queue**
   - Linear queue(isFull, isEmpty, enqueue, peek, dequeue etc.)
