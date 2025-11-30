@@ -10,6 +10,8 @@ It’s designed as both a personal learning archive and a resource for anyone re
 
 - **Linked List**
   - Singly Linked List (insertion, deletion, traversal, reverse, search, min/max, middle element, Sorted insertion, Forward & backward display)
+  - Circular Linked List (insertion, deletion, traversal, reverse, search, min/max, middle element, Sorted insertion, Forward & backward display)
+  - Applications (stack & queue with push, pop, peek, display operations)
 - **Arrays**
   - Basic operations
   - Sparse matrix

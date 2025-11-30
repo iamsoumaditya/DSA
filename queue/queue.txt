@@ -1,0 +1,1 @@
+Some queue like dequeue and priority queue are in the linkedList/application folder
