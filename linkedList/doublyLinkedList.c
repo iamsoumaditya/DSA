@@ -1,8 +1,10 @@
-#include <stdio.h>
-#include <limits.h>
-#include <stdlib.h>
-#include <math.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<limits.h>
+#include<math.h>
+
 struct Node{
+    struct Node *prev;
     int data;
     struct Node *next;
 };
@@ -14,6 +16,7 @@ struct Node *create(int val){
         printf("Insufficient Memory!!\n");
         return ptr;
     }
+    ptr->prev = NULL;
     ptr->data = val;
     ptr->next = NULL;
     return ptr;
@@ -26,6 +29,7 @@ void addBeg(int val){
     }
     struct Node *curr = create(val);
     curr->next = head;
+    head->prev = curr;
     head = curr;
 }
 
@@ -39,12 +43,15 @@ void addEnd(int val){
         temp = temp->next;
     }
     temp->next = create(val);
+    temp->next->prev = temp;
 }
 
 void insertSorted(int val){
     if (head == NULL || head->data > val){
         struct Node *curr = create(val);
         curr->next = head;
+        if(head != NULL)
+        head->prev = curr;
         head = curr;
         return;
     }
@@ -55,7 +62,10 @@ void insertSorted(int val){
         temp = temp->next;
     }
     prev->next = create(val);
+    prev->next->prev = prev;
     prev->next->next = temp;
+    if(temp != NULL)
+    temp->prev = prev->next;
 }
 
 void delBeg(){
@@ -63,6 +73,8 @@ void delBeg(){
         return;
     struct Node *temp = head;
     head = head->next;
+    if(head != NULL)
+    head->prev = NULL;
     free(temp);
 }
 
@@ -89,12 +101,16 @@ void delAny(int val){
     struct Node *prev = head;
     if (head->data == val){
         head = head->next;
+        if (head != NULL)
+            head->prev = NULL;
         free(temp);
         return;
     }
     while (temp != NULL){
         if (temp->data == val){
             prev->next = temp->next;
+            if(temp->next != NULL)
+            temp->next->prev = prev;
             free(temp);
             return;
         }
@@ -131,6 +147,7 @@ void reverse(){
     while (curr != NULL){
         next = curr->next;
         curr->next = prev;
+        curr->prev = next;
         prev = curr;
         curr = next;
     }
@@ -138,10 +155,12 @@ void reverse(){
 }
 
 void middle(){
-    if (head == NULL || head->next == NULL)
-        return;
     struct Node *fast = head;
     struct Node *slow = head;
+    if (head == NULL || head->next == NULL){
+        head == NULL? printf("List is empty!!"):printf("Middle element %d", slow->data);
+        return;
+    }
     while (fast != NULL && fast->next != NULL){
         fast = fast->next->next;
         slow = slow->next;
@@ -191,10 +210,10 @@ int main(){
     int choice, val, pos;
 
     while (1){
-        printf("\n\n===== Linked List Menu =====\n");
+        printf("\n\n--- Doubly Linked List Menu ---\n");
         printf("1. Add at Beginning\n");
         printf("2. Add at End\n");
-        printf("3. Insert in Sorted Order\n");
+        printf("3. Insert Sorted\n");
         printf("4. Delete from Beginning\n");
         printf("5. Delete from End\n");
         printf("6. Delete Specific Value\n");
@@ -209,7 +228,8 @@ int main(){
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
-        switch (choice){
+        switch (choice)
+        {
         case 1:
             printf("Enter value: ");
             scanf("%d", &val);
@@ -243,19 +263,25 @@ int main(){
             break;
 
         case 7:
+            printf("List (Forward): ");
             displayFoward();
+            printf("\n");
             break;
 
         case 8:
+            printf("List (Backward): ");
             displayBackward(head);
+            printf("\n");
             break;
 
         case 9:
             reverse();
+            printf("List reversed.\n");
             break;
 
         case 10:
             middle();
+            printf("\n");
             break;
 
         case 11:
@@ -263,15 +289,15 @@ int main(){
             scanf("%d", &val);
             pos = search(val);
             if (pos == -1)
-                printf("Element not found\n");
+                printf("Element not found.\n");
             else
-                printf("Element found at position %d\n", pos);
+                printf("Element found at position %d.\n", pos);
             break;
 
         case 12:
             val = smallest();
             if (val == -1)
-                printf("List is empty\n");
+                printf("List is empty.\n");
             else
                 printf("Smallest element: %d\n", val);
             break;
@@ -279,7 +305,7 @@ int main(){
         case 13:
             val = largest();
             if (val == -1)
-                printf("List is empty\n");
+                printf("List is empty.\n");
             else
                 printf("Largest element: %d\n", val);
             break;
