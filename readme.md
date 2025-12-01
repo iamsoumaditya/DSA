@@ -31,6 +31,8 @@ It’s designed as both a personal learning archive and a resource for anyone re
   - Circular queue (same as above)
   - Dequeue queue (same as above)
   - Priority queue (same as above)
+  - Applications :-  
+    - Undo / Redo operations
 
 - **More coming soon....**
 ---
