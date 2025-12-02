@@ -19,6 +19,12 @@ It’s designed as both a personal learning archive and a resource for anyone re
 - **Arrays**
   - Basic operations
   - Sparse matrix
+- **Sorting** (Basic complexity support available)
+  - Bubble sort
+  - Selection sort
+  - Insertion sort
+  - Merge sort
+  - Quick sort
 - **Recursion**
   - Tower of hanoi
 - **Stack**
