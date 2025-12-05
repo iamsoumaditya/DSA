@@ -26,6 +26,11 @@ It’s designed as both a personal learning archive and a resource for anyone re
   - Merge sort
   - Quick sort
   - Radix sort
+- **Searching** (Basic complexity support available)
+  - Linear search
+  - Binary search
+  - Ternary search
+  - Interpolation search
 - **Recursion**
   - Tower of hanoi
 - **Stack**
