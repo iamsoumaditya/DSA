@@ -47,7 +47,7 @@ int partition(int arr[], int low, int high){
     return i;
 }
 
-void quick_sort(int arr[], int low, int high){ // T -> O(nlogn)  S-> O(1) for best and avg for worst sorted array o(n^2)
+void quick_sort(int arr[], int low, int high){ // T -> O(nlogn)  S-> O(logn) for best and avg for worst sorted array o(n^2)
     if (low < high){ // no. of elements >= 2
         int j = partition(arr, low, high);
         quick_sort(arr, low, j-1);

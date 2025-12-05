@@ -25,6 +25,7 @@ It’s designed as both a personal learning archive and a resource for anyone re
   - Insertion sort
   - Merge sort
   - Quick sort
+  - Radix sort
 - **Recursion**
   - Tower of hanoi
 - **Stack**
