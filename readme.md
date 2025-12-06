@@ -45,6 +45,12 @@ It’s designed as both a personal learning archive and a resource for anyone re
   - Priority queue (same as above)
   - Applications :-  
     - Undo / Redo operations
+- **Graph**
+  - Directed (adjacency matrix)
+  - UnDirected (adjacency matrix)
+  - UnDirected (adjacency list)
+  - BFS 
+  - DFS 
 
 - **More coming soon....**
 ---
