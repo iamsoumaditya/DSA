@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<limits.h>
 
 struct Node{
     struct Node *lchild;
@@ -103,6 +104,68 @@ struct Node* delete(struct Node* r, int key){ //TC = SC= O(logn) skewed tree-> O
     return r;
 }
 
+int search(struct Node *root, int key){
+    if(root == NULL)
+        return 0;
+    if(key == root->data)
+        return 1;
+    else if(key < root->data)
+        return search(root->lchild, key);
+    else
+        return search(root->rchild, key);
+}
+
+int largest(struct Node*root){
+    if(root == NULL)
+        return INT_MIN;
+    if(root->rchild == NULL)
+        return root->data;
+    else
+        return largest(root->rchild);
+}
+
+int smallest(struct Node*root){
+    if(root == NULL)
+        return INT_MAX;
+    if(root->lchild == NULL)
+        return root->data;
+    else
+        return smallest(root->lchild);
+}
+
+int height(struct Node*root){
+    if(root == NULL)
+        return -1; // return 0;
+    int hl = height(root->lchild);
+    int hr = height(root->rchild);
+
+    return 1 + (hl > hr ? hl : hr);
+}
+
+int totalNode(struct Node* root){
+    if(root == NULL)
+        return 0;
+    return totalNode(root->lchild) + totalNode(root->rchild) + 1;
+}
+
+int internalNode(struct Node* root){
+    if(root == NULL)
+        return 0;
+    if(root->lchild == NULL && root->rchild == NULL)
+        return 0;
+    else
+       return internalNode(root->lchild) + internalNode(root->rchild) + 1;
+}
+
+int externalNode(struct Node* root){
+    if(root == NULL)
+        return 0;
+    if(root->lchild == NULL && root->rchild == NULL)
+        return 1;
+    else
+       return externalNode(root->lchild) + externalNode(root->rchild);
+}
+
 int main(){
     int choice, val;
 
@@ -113,7 +176,13 @@ int main(){
         printf("3. Preorder Traversal\n");
         printf("4. Postorder Traversal\n");
         printf("5. Delete\n");
-        printf("6. Exit\n");
+        printf("6. search\n");
+        printf("7. largest\n");
+        printf("8. smallest\n");
+        printf("9. height\n");
+        printf("10. Internal Node\n");
+        printf("11. External Node\n");
+        printf("12. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -144,6 +213,42 @@ int main(){
             delete(root,val);
             break;
         case 6:
+            printf("Enter value to search: ");
+            scanf("%d", &val);
+            if (search(root, val))
+                printf("%d found in BST.\n", val);
+            else
+                printf("%d not found.\n", val);
+
+            break;
+        case 7:
+            val = largest(root);
+            if (val == INT_MIN)
+                printf("Tree is empty.\n");
+            else
+                printf("Largest element = %d\n", val);
+
+            break;
+        case 8:
+            val = smallest(root);
+            if (val == INT_MAX)
+                printf("Tree is empty.\n");
+            else
+                printf("Smallest element = %d\n", val);
+            break;
+        case 9:
+            val = height(root);
+            printf("Height of the Tree is %d.\n",val);
+            break;
+        case 10:
+            val = internalNode(root);
+            printf("Total internal node of the Tree is %d.\n",val);
+            break;
+        case 11:
+            val = externalNode(root);
+            printf("Total external node of the Tree is %d.\n",val);
+            break;
+        case 12:
             printf("Exiting...\n");
             return 0;
         default:
