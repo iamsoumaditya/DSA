@@ -14,7 +14,7 @@ void print(int arr[], int *n){
 }
 
 void bubble_sort(int arr[], int n){ // T -> O(n^2)  S-> O(1)
-    for (int i = 0; i < n;i++){
+    for (int i = 0; i < n-1;i++){ // bubble sort require n-1 passes last element is always sorted
         for (int j = 0; j < n - i - 1; j++){
             if(arr[j+1] < arr[j]){
             int temp = arr[j];
