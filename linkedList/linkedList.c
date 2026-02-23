@@ -41,6 +41,24 @@ void addEnd(int val){
     temp->next = create(val);
 }
 
+void insertAfter(int key,int val){
+    if (head == NULL){
+        printf("List empty!!");
+        return;
+    }
+    struct Node *temp = head;
+    while (temp != NULL && temp->data != key){
+        temp = temp->next;
+    }
+    if(temp == NULL){
+        printf("Key not found!!");
+        return;
+    }
+    struct Node *curr = create(val);
+    curr->next = temp->next;
+    temp->next = curr;
+}
+
 void insertSorted(int val){
     if (head == NULL || head->data > val){
         struct Node *curr = create(val);
