@@ -62,3 +62,12 @@ Clone the repository:
 ```bash
 git clone https://github.com/iamsoumaditya/DSA.git
 cd DSA
+
+```
+
+---
+## 🙎Author
+
+ **Soumaditya Roy**
+
+---
